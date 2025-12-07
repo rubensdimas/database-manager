@@ -1,8 +1,9 @@
 <?php
 
-namespace Rubensdimas\DatabaseManager;
+namespace Crefito11\DatabaseManager;
 
-class Pagination{
+class Pagination
+{
 
   /**
    * Número máximo de registros por página
@@ -34,7 +35,8 @@ class Pagination{
    * @param integer  $currentPage
    * @param integer  $limit
    */
-  public function __construct($results,$currentPage = 1,$limit = 10){
+  public function __construct($results, $currentPage = 1, $limit = 10)
+  {
     $this->results     = $results;
     $this->limit       = $limit;
     $this->currentPage = (is_numeric($currentPage) and $currentPage > 0) ? $currentPage : 1;
@@ -44,7 +46,8 @@ class Pagination{
   /**
    * Método responsável por calcular a páginação
    */
-  private function calculate(){
+  private function calculate()
+  {
     //CALCULA O TOTAL DE PÁGINAS
     $this->pages = $this->results > 0 ? ceil($this->results / $this->limit) : 1;
 
@@ -56,22 +59,24 @@ class Pagination{
    * Método responsável por retornar a cláusula limit da SQL
    * @return string
    */
-  public function getLimit(){
+  public function getLimit()
+  {
     $offset = ($this->limit * ($this->currentPage - 1));
-    return $offset.','.$this->limit;
+    return $offset . ',' . $this->limit;
   }
 
   /**
    * Método responsável por retornar as opções de páginas disponíveis
    * @return array
    */
-  public function getPages(){
+  public function getPages()
+  {
     //NÃO RETORNA PÁGINAS
-    if($this->pages == 1) return [];
+    if ($this->pages == 1) return [];
 
     //PÁGINAS
     $pages = [];
-    for($i = 1; $i <= $this->pages; $i++){
+    for ($i = 1; $i <= $this->pages; $i++) {
       $pages[] = [
         'page'    => $i,
         'current' => $i == $this->currentPage
@@ -80,5 +85,4 @@ class Pagination{
 
     return $pages;
   }
-
 }
