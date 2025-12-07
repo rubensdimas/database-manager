@@ -1,12 +1,12 @@
 {
-    "name": "rubensdimas/database-manager",
+    "name": "crefito11/database-manager",
     "description": "A simple library for managing database connections with singleton design pattern, results pagination and building queries in PHP.",
     "type": "library",
     
     "license": "GPL-3.0-or-later",
     "autoload": {
         "psr-4": {
-            "Rubensdimas\\DatabaseManager\\": "src/"
+            "Crefito11\\DatabaseManager\\": "src/"
         }
     },
     "authors": [
@@ -16,7 +16,7 @@
         },
         {
             "name": "Rubens Dimas Jr",
-            "email": "rubens.jr107@gmail.com"
+            "email": "rubens.junior@crefito11.gov.br"
         }
         
     ],
